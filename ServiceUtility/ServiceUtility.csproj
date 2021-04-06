@@ -1,17 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <RootNamespace>TGS.ServiceUtility</RootNamespace>
-    <Authors>Phoenix</Authors>
-    <Company>Valhalla</Company>
-    <Version>0.0.1</Version>
-    <PackageProjectUrl>https://github.com/yggdrasill-dev/ValhallaServiceUtility</PackageProjectUrl>
-    <RepositoryUrl>git@github.com:yggdrasill-dev/ValhallaServiceUtility.git</RepositoryUrl>
-    <RepositoryType>Git</RepositoryType>
-    <PackageTags>Valhalla Services</PackageTags>
-    <AssemblyName>TGS.ServiceUtility</AssemblyName>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>TGS.ServiceUtility</RootNamespace>
+		<Authors>Raypro</Authors>
+		<Version>0.0.2</Version>
+		<PackageProjectUrl>https://gitlab.com/rayprosoft/service-utility</PackageProjectUrl>
+		<RepositoryUrl>https://gitlab.com/rayprosoft/service-utility.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Raypro Services</PackageTags>
+		<AssemblyName>TGS.ServiceUtility</AssemblyName>
+		<Description>用於定義CQRS基本界面</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+	</ItemGroup>
 
 </Project>

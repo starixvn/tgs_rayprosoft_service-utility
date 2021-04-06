@@ -21,14 +21,6 @@ pipeline {
 				sh  'dotnet pack ServiceUtility/ServiceUtility.csproj -c $BuildConfiguration --no-build --no-restore'
 			}
 		}
-
-		stage('Pre Nuget') {   
-			steps {
-				timeout(time:1, unit: 'MINUTES') {
-				   input message: "Push to nuget ?"
-				}
-			}
-		}
 		
 		stage('Push Nuget') {   
 			steps {

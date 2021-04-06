@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<RootNamespace>TGS.ServiceUtility</RootNamespace>
 		<Authors>Raypro</Authors>
-		<Version>0.0.2</Version>
+		<Version>0.0.3</Version>
 		<PackageProjectUrl>https://gitlab.com/rayprosoft/service-utility</PackageProjectUrl>
 		<RepositoryUrl>https://gitlab.com/rayprosoft/service-utility.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>

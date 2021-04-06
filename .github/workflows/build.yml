@@ -1,0 +1,45 @@
+name: Build & Push
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  BuildConfiguration: debug
+  NugetSource: raypro
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore dependencies
+        run: dotnet restore
+        
+      - name: Pack
+        run: dotnet pack -c ${{env.BuildConfiguration}} --no-restore ServiceUtility/ServiceUtility.csproj
+        
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.2.2
+        with:
+          # Artifact name
+          name: nuget
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ServiceUtility/bin/${{env.BuildConfiguration}}/*.nupkg
+  push-myget:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.0.8
+        with:
+          # Artifact name
+          name: nuget
+          # Destination path
+          path: nuget
+      - name: push
+        run: dotnet nuget push "nuget\*.nupkg" -s "$($env:NugetSource)" --skip-duplicate

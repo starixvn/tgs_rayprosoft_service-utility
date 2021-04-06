@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	
 	environment {
-		Registry = "registry.gitlab.com/rayprosoft/service-utility/"
+		BuildConfiguration="Debug"
 	}
 	
 	parameters {
@@ -10,18 +10,18 @@ pipeline {
 	}
 
 	stages {
-		stage('Clone') {
-			steps {
-				git branch: "${params.BRANCH}", url: 'https://gitlab.com/rayprosoft/service-utility.git' , credentialsId: 'gitlab-user-pwd'
-			}
-		}
-	
 		stage('Build') {
 			steps {
-				sh "dotnet build service-utility.sln"
+				sh "dotnet build"
 			}
 		}
 		
+		stage('Pack') {
+			steps {
+				sh  'dotnet pack ServiceUtility/ServiceUtility.csproj -c $BuildConfiguration --no-build --no-restore'
+			}
+		}
+
 		stage('Pre Nuget') {   
 			steps {
 				timeout(time:1, unit: 'MINUTES') {
@@ -32,8 +32,7 @@ pipeline {
 		
 		stage('Push Nuget') {   
 			steps {
-				sh  'dotnet pack ServiceUtility/ServiceUtility.csproj'
-				sh  'dotnet nuget push **/*.nupkg --source "gitlab" --skip-duplicate'
+				sh  'dotnet nuget push ServiceUtility/bin/$BuildConfiguration/*.nupkg --source "raypro" --skip-duplicate'
 			}
 		}	
 	}

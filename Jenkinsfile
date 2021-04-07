@@ -25,7 +25,7 @@ pipeline {
 		stage('Push Nuget') {   
 			steps {
 				sh  'dotnet nuget push ServiceUtility/bin/$BuildConfiguration/*.nupkg --source "raypro" --skip-duplicate'
-				sh  'dotnet nuget push ServiceUtility/bin/$BuildConfiguration/*.nupkg --source "tgsNuget" --skip-duplicate'
+				sh  'dotnet nuget push ServiceUtility/bin/$BuildConfiguration/*.nupkg --source "tgs-nuget" --skip-duplicate'
 			}
 		}	
 	}

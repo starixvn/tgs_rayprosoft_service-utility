@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace TGS.ServiceUtility
+namespace Tgs.ServiceUtility
 {
 	public interface IGetService<TQuery, TResult>
 	{

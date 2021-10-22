@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 
-namespace TGS.ServiceUtility
+namespace Tgs.ServiceUtility
 {
 	public interface IQueryService<TQuery, TResult>
 	{

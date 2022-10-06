@@ -1,10 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Tgs.ServiceUtility
+namespace Tgs.ServiceUtility;
+
+public interface IGetService<TQuery, TResult>
 {
-	public interface IGetService<TQuery, TResult>
-	{
-		ValueTask<TResult> GetAsync(TQuery query, CancellationToken cancellationToken = default);
-	}
+	ValueTask<TResult> GetAsync(TQuery query, CancellationToken cancellationToken = default);
 }

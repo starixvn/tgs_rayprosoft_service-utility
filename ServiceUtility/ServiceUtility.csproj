@@ -1,17 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<RootNamespace>Tgs.ServiceUtility</RootNamespace>
 		<Authors>Raypro</Authors>
-		<Version>0.1.0</Version>
+		<Version>0.2.0</Version>
 		<PackageProjectUrl>https://gitlab.com/rayprosoft/service-utility</PackageProjectUrl>
 		<RepositoryUrl>https://gitlab.com/rayprosoft/service-utility.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>Raypro Services</PackageTags>
 		<AssemblyName>TGS.ServiceUtility</AssemblyName>
 		<Description>用於定義CQRS基本界面</Description>
+		<Product>Tgs.ServiceUtility</Product>
+		<PackageId>TGS.ServiceUtility</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>

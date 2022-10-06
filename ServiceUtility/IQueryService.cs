@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 
-namespace Tgs.ServiceUtility
+namespace Tgs.ServiceUtility;
+
+public interface IQueryService<TQuery, TResult>
 {
-	public interface IQueryService<TQuery, TResult>
-	{
-		IAsyncEnumerable<TResult> QueryAsync(TQuery query, CancellationToken cancellationToken = default);
-	}
+	IAsyncEnumerable<TResult> QueryAsync(TQuery query, CancellationToken cancellationToken = default);
 }
